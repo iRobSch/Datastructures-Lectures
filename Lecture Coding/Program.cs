@@ -2,13 +2,20 @@
 
 public class Program
 {
-    private static readonly int[] Array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    private static readonly int[] SortedArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    private static readonly int[] UnsortedArray = { 5, 10, 3, 18, 2, 5, 7, 12 };
 
     public static void Main(string[] args)
     {
         if (args == null) throw new ArgumentNullException(nameof(args));
 
-        Console.WriteLine(new BinarySearch().Search(Array, 15));
-        Console.WriteLine(new BinarySearch().BSearch(Array, 11));
+        // Binary Search
+        Console.WriteLine(new BinarySearch().Search(SortedArray, 15));
+        Console.WriteLine(new BinarySearch().BSearch(SortedArray, 11));
+
+        // Quick Sort
+        Console.WriteLine("Insertion sort: [{0}]", string.Join(", ", new Sorting().InsertionSort(UnsortedArray)));
+        Console.WriteLine("Selection sort: [{0}]", string.Join(", ", new Sorting().SelectionSort(UnsortedArray)));
+        Console.WriteLine("Quick sort: [{0}]", string.Join(", ", new Sorting().QuickSort(UnsortedArray, 1, UnsortedArray.Length)));
     }
 }
