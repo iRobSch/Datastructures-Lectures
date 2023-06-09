@@ -36,7 +36,6 @@ public class Sorting
         for (int i = 0; i < l - 1; i++)
         {
             int minIndex = i;
-            int minValue = A[i];
 
             // Loops through the array, looking for the eventual smallest value.
             for (int j = i + 1; j < l; j++)
@@ -44,23 +43,19 @@ public class Sorting
 
             // Swaps the values.
             if (minIndex != i)
-            {
-                int temp = A[i];
-                A[i] = minValue;
-                A[minIndex] = temp;
-            }
+                (A[i], A[minIndex]) = (A[minIndex], A[i]);
         }
 
         return A;
     }
 
-    public int[] QuickSort(int[] A, int p, int r)
+    public int[] QuickSort(int[] A, int l, int r)
     {
-        if (p < r)
+        if (l < r)
         {
-            int q = Split(A, p, r);
-            QuickSort(A, p, q - 1);
-            QuickSort(A, q + 1, r);
+            int res = Split(A, l, r);
+            QuickSort(A, l, res - 1);
+            QuickSort(A, res + 1, r);
         }
 
         return A;
@@ -68,17 +63,19 @@ public class Sorting
 
     public int Split(int[] A, int l, int r)
     {
-        int i = l - 1;
+        int pivot = A[l];
+        int start = l, end = r;
 
-        for (int j = l; j < r - 1; j++)
-            if (A[j] <= A[r - 1])
-            {
-                i++;
+        while (start < end)
+        {
+            while (A[start] <= pivot) start++;
+            while (A[end] > pivot) end--;
+            if (start < end)
+                (A[start], A[end]) = (A[end], A[start]);
+        }
 
-                (A[j], A[i]) = (A[i], A[j]);
-            }
-        (A[r - 1], A[i + 1]) = (A[i + 1], A[r - 1]);
+        (A[l], A[end]) = (A[end], A[l]);
 
-        return i + 1;
+        return end;
     }
 }
