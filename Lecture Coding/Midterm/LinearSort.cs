@@ -1,4 +1,4 @@
-﻿namespace Lecture_Coding;
+﻿namespace Lecture_Coding.Midterm;
 
 public class LinearSort
 {
@@ -73,7 +73,7 @@ public class LinearSort
 
         for (int i = 0; i < n; i++)
             // Modulo 10 because of the exponents.
-            count[(array[i] / exponent) % 10]++;
+            count[array[i] / exponent % 10]++;
 
         // count[i] should store the actual position of the digit.
         for (int i = 1; i < 10; i++)
@@ -83,10 +83,10 @@ public class LinearSort
         // based on the sorted position as they're added to the temp array.
         for (int i = n - 1; i >= 0; i--)
         {
-            temp[count[(array[i] / exponent) % 10] - 1] = array[i];
-            count[(array[i] / exponent) % 10]--;
+            temp[count[array[i] / exponent % 10] - 1] = array[i];
+            count[array[i] / exponent % 10]--;
         }
-        
+
         for (int i = 0; i < n; i++)
             array[i] = temp[i];
 

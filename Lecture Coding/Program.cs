@@ -1,4 +1,6 @@
-﻿namespace Lecture_Coding;
+﻿using Lecture_Coding.Midterm;
+
+namespace Lecture_Coding;
 
 public class Program
 {

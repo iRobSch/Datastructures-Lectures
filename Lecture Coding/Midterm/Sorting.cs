@@ -1,4 +1,4 @@
-﻿namespace Lecture_Coding;
+﻿namespace Lecture_Coding.Midterm;
 
 public class Sorting
 {
