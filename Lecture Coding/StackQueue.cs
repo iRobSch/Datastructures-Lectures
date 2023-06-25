@@ -1,5 +1,6 @@
 ﻿namespace Lecture_Coding;
 
+#nullable disable
 public class StackNode
 {
     public int Key;
@@ -73,17 +74,25 @@ public class Queue
         this.tail = tail;
     }
 
-    public int Tail() => head.Key;
     public bool IsEmpty() => head == null;
 
     public void Enqueue(int x)
     {
-        tail.Next = new QueueNode(x, tail);
-        Count++;
+        QueueNode node = new(x, null);
+
+        if (head == null)
+            head = tail = node;
+        else
+        {
+            tail.Next = node;
+            tail = node;
+        }
     }
 
     public int Dequeue()
     {
+        if (head == null) return -1;
+
         int t = head.Key;
         head = head.Next;
         Count--;
