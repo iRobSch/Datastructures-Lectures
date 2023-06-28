@@ -1,6 +1,6 @@
 ﻿namespace Lecture_Coding;
 
-public class HeapSort
+public class Heap
 {
     public int[] Sort(int[] array, int size)
     {
@@ -8,7 +8,6 @@ public class HeapSort
 
         BuildHeap(array, size);
         
-
         for (int j = size - 1; j >= 0; j--)
         {
             (array[0], array[j]) = (array[j], array[0]);

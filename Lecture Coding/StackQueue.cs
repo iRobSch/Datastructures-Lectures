@@ -72,6 +72,7 @@ public class Queue
     {
         this.head = head;
         this.tail = tail;
+        Count++;
     }
 
     public bool IsEmpty() => head == null;
@@ -85,13 +86,19 @@ public class Queue
         else
         {
             tail.Next = node;
-            tail = node;
+            tail = tail.Next;
         }
+
+        Count++;
     }
 
     public int Dequeue()
     {
-        if (head == null) return -1;
+        if (head == null)
+        {
+            tail = null;
+            return -1;
+        }
 
         int t = head.Key;
         head = head.Next;

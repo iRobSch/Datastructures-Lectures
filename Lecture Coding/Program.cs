@@ -27,6 +27,6 @@ public class Program
         // Console.WriteLine("Bucket sort: [{0}]", string.Join(", ", new LinearSort().BucketSort(UnsortedArray)));
 
         // Heap Sort
-        Console.WriteLine("Heap sort: [{0}]", string.Join(", ", new HeapSort().Sort(UnsortedHeapArray, UnsortedHeapArray.Length)));
+        Console.WriteLine("Heap sort: [{0}]", string.Join(", ", new Heap().Sort(UnsortedHeapArray, UnsortedHeapArray.Length)));
     }
 }
